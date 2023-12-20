@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {FC, useState} from 'react';
 import './App.css';
+import DisplayPage from './DisplayPage/DisplayPage';
+import Card from './Models/Card';
 
-function App() {
+const App: FC = () => {
+const[cardList, setCardList] = useState<Card[]>([]);
+
+const addCard = (newCard: Card) => {
+ setCardList([...cardList, newCard]);
+}
+
+const deleteCard = (id: number) => {
+  const newCardList = cardList.filter(card => card.id !== id);
+  setCardList(newCardList)
+}
+
+const updateCard = (newCard: Card) => {
+  setCardList(cardList.map((card) => 
+  (card.id === newCard.id ? newCard : card)))
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DisplayPage 
+      updateCard={updateCard}
+      cardList={cardList}
+      addCard={addCard}
+      deleteCard={deleteCard}
+      />
     </div>
   );
 }
