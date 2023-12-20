@@ -1,3 +1,7 @@
+
+![Screenshot 2023-12-20 114503](https://github.com/DVISNAKO/PET--Car-Gallery/assets/106438454/7dca039d-da58-493e-9953-11810a09e225)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
